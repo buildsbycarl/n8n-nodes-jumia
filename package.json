@@ -1,0 +1,28 @@
+{
+  "name": "n8n-nodes-jumia",
+  "version": "0.1.0",
+  "description": "n8n custom node for the Jumia Vendor API with automatic rotating-refresh-token handling",
+  "license": "MIT",
+  "main": "index.js",
+  "keywords": [
+    "n8n-community-node-package"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/JumiaOAuth2Api.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Jumia/Jumia.node.js"
+    ]
+  },
+  "scripts": {
+    "build": "tsc && node -e \"const fs=require('fs');const p='nodes/Jumia';fs.readdirSync(p).filter(f=>f.endsWith('.svg')).forEach(f=>fs.copyFileSync(p+'/'+f,'dist/'+p+'/'+f))\"",
+    "dev": "tsc --watch"
+  },
+  "devDependencies": {
+    "n8n-workflow": "*",
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0"
+  }
+}
