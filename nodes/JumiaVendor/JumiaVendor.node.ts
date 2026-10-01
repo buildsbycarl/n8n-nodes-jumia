@@ -21,13 +21,13 @@ export class JumiaVendor implements INodeType {
   description: INodeTypeDescription = {
     displayName: "Jumia Vendor",
     name: "jumiaVendor",
-    icon: "file:jumia.svg",
+    icon: "file:jumiaVendor.svg",
     group: ["transform"],
     version: 1,
     subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
     description: "Interact with the Jumia Vendor API",
     defaults: {
-      name: "Jumia",
+      name: "Jumia Vendor",
     },
     inputs: ["main"],
     outputs: ["main"],
