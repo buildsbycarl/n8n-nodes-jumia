@@ -1,11 +1,30 @@
 {
-  "name": "n8n-nodes-jumia",
+  "name": "n8n-nodes-jumia-vendor",
   "version": "0.1.0",
   "description": "n8n custom node for the Jumia Vendor API with automatic rotating-refresh-token handling",
   "license": "MIT",
-  "main": "index.js",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n-community-node-package",
+    "jumia",
+    "jumia vendor",
+    "jumia seller center",
+    "ecommerce",
+    "africa"
+  ],
+  "author": {
+    "name": "Carl",
+    "url": "https://buildsbycarl.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buildsbycarl/n8n-nodes-jumia-vendor.git"
+  },
+  "homepage": "https://github.com/buildsbycarl/n8n-nodes-jumia-vendor#readme",
+  "bugs": {
+    "url": "https://github.com/buildsbycarl/n8n-nodes-jumia-vendor/issues"
+  },
+  "files": [
+    "dist"
   ],
   "n8n": {
     "n8nNodesApiVersion": 1,
@@ -17,12 +36,16 @@
     ]
   },
   "scripts": {
-    "build": "tsc && node -e \"const fs=require('fs');const p='nodes/Jumia';fs.readdirSync(p).filter(f=>f.endsWith('.svg')).forEach(f=>fs.copyFileSync(p+'/'+f,'dist/'+p+'/'+f))\"",
-    "dev": "tsc --watch"
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsc && node -e \"const fs=require('fs'),path=require('path');function c(d){fs.readdirSync(d,{withFileTypes:true}).forEach(f=>{const p=path.join(d,f.name);if(f.isDirectory())c(p);else if(f.name.endsWith('.svg')||f.name.endsWith('.png')){const dest=path.join('dist',p);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(p,dest);}});}c('nodes');\"",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "n8n-workflow": "*",
     "typescript": "^5.4.0",
     "@types/node": "^20.0.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
   }
 }

@@ -17,10 +17,10 @@ import {
  * reaches n8n's real log output, unlike console.log from inside a
  * credential's preAuthentication, which may run in a sandboxed context).
  */
-export class Jumia implements INodeType {
+export class JumiaVendor implements INodeType {
   description: INodeTypeDescription = {
-    displayName: "Jumia",
-    name: "jumia",
+    displayName: "Jumia Vendor",
+    name: "jumiaVendor",
     icon: "file:jumia.svg",
     group: ["transform"],
     version: 1,
