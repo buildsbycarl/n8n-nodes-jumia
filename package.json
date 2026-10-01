@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-jumia-vendor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n custom node for the Jumia Vendor API with automatic rotating-refresh-token handling",
   "license": "MIT",
   "keywords": [
